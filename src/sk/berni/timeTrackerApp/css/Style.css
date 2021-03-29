@@ -1,0 +1,54 @@
+.sidebarItem:hover {
+    -fx-background-color: #0292b5;
+    -fx-border-color: WHITE;
+    -fx-border-width: 0px 0px 0px 3px;
+}
+
+.timerButtons:hover {
+	-fx-background-color: #0292b5;
+    -fx-border-color: #ffb508;
+    -fx-border-width: 3px 0px 0px 0px;
+    -fx-text-fill: white;
+}
+
+.timerButtons {
+	 -fx-text-fill: #00a6cf;
+}
+
+.deleteButton:hover {
+	-fx-background-color: #0292b5;
+    -fx-text-fill: white;
+}
+
+.deleteButton {
+	 -fx-text-fill: #00a6cf;
+}
+
+.saveDataButton {
+	-fx-background-color: #fff;
+}
+
+.saveTextField {
+	-fx-text-fill: #fff;
+}
+
+.inputAddText {
+	-fx-text-fill: #f79f00;
+}
+
+.jfx-combo-box .cell {
+    -fx-background-color: #f4f4f4;
+    -fx-text-fill: #00a6cf;
+}
+
+.jfx-combo-box .cell:hover {
+    -fx-text-fill: white;
+    -fx-background-color: #00a6cf;
+}
+
+.jfx-combo-box {
+    -fx-prompt-text-fill:  #00a6cf;
+    -fx-font-weight: bold;
+}
+
+

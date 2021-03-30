@@ -44,7 +44,7 @@ public class MenuTimerSection {
 		btnSaveStopwatch.setOnAction(event -> {
 			saveSuccessTimeLabel.setVisible(false);
 			saveRuleInfo.setVisible(true);
-			if (stopwatch.getSecs() != 0) {
+			if (stopwatch.getHour() != 0 || stopwatch.getMin() != 0 || stopwatch.getSecs() != 0) {
 				setPanes(true);
 				stopwatch.pause();
 				saveRuleInfo.setVisible(false);

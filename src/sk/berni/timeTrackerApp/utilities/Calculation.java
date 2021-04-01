@@ -41,19 +41,22 @@ public class Calculation {
 	}
 
 	public static String getActualDateToCalculateTotalDays(ArrayList<Activity> activitiesByName) {
-		ArrayList<Integer> datesInt = new ArrayList<>();
-		for (Activity date : activitiesByName) {
-			if (date.getDate().substring(0, 10).contains(".")) {
-				int dateInt = Integer.parseInt(date.getDate().substring(0, 10).replace(".", ""));
-				datesInt.add(dateInt);
-			}
+		String dateSTR = String.valueOf(getDateForCalculation(activitiesByName).get(0));
+		if (dateSTR.length() < 8) {
+			dateSTR = "0" + dateSTR;
 		}
-		Collections.sort(datesInt);
-		String dateSTR = String.valueOf(datesInt.get(0));
 		return addChar(dateSTR, '.', 2, 5);
 	}
 
 	public static String getLastPutDateToCalculateTotalDays(ArrayList<Activity> activitiesByName) {
+		String dateSTR = String.valueOf(getDateForCalculation(activitiesByName).get(activitiesByName.size() - 1));
+		if (dateSTR.length() < 8) {
+			dateSTR = "0" + dateSTR;
+		}
+		return addChar(dateSTR, '.', 2, 5);
+	}
+
+	private static ArrayList<Integer> getDateForCalculation(ArrayList<Activity> activitiesByName) {
 		ArrayList<Integer> datesInt = new ArrayList<>();
 		for (Activity date : activitiesByName) {
 			if (date.getDate().substring(0, 10).contains(".")) {
@@ -62,8 +65,7 @@ public class Calculation {
 			}
 		}
 		Collections.sort(datesInt);
-		String dateSTR = String.valueOf(datesInt.get(datesInt.size() - 1));
-		return addChar(dateSTR, '.', 2, 5);
+		return datesInt;
 	}
 
 	private static String addChar(String str, char ch, int position1, int position2) {

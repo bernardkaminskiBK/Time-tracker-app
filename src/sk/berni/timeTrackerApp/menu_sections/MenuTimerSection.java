@@ -38,14 +38,13 @@ public class MenuTimerSection {
 
 	public void openSavePane(JFXButton btnSaveStopwatch, JFXButton btnAcceptSave, Label saveRuleInfo,
 			Label saveSuccessTimeLabel, Label nameWarningTimerLabel) {
-
 		this.nameWarningTimerLabel = nameWarningTimerLabel;
 
 		btnSaveStopwatch.setOnAction(event -> {
 			saveSuccessTimeLabel.setVisible(false);
 			saveRuleInfo.setVisible(true);
 			if (stopwatch.getHour() != 0 || stopwatch.getMin() != 0 || stopwatch.getSecs() != 0) {
-				setPanes(true);
+				disablePanes(true);
 				stopwatch.pause();
 				saveRuleInfo.setVisible(false);
 			}
@@ -54,10 +53,10 @@ public class MenuTimerSection {
 		btnAcceptSave.setOnAction(event -> {
 			if (nameOfActivity.getText().isEmpty()) {
 				nameWarningTimerLabel.setVisible(true);
-				setPanes(true);
+				disablePanes(true);
 			} else {
 				nameWarningTimerLabel.setVisible(false);
-				setPanes(false);
+				disablePanes(false);
 				addActivityToDB();
 				saveSuccessTimeLabel.setVisible(true);
 			}
@@ -68,7 +67,7 @@ public class MenuTimerSection {
 	public void cancelSavePane(JFXButton btnCancelSave) {
 		btnCancelSave.setOnAction(event -> {
 			nameWarningTimerLabel.setVisible(false);
-			setPanes(false);
+			disablePanes(false);
 			nameOfActivity.clear();
 		});
 	}
@@ -77,7 +76,7 @@ public class MenuTimerSection {
 		saveSuccessTimeLabel.setVisible(false);
 	}
 
-	private void setPanes(boolean val) {
+	private void disablePanes(boolean val) {
 		saveDataPane.setVisible(val);
 		timerPane.setDisable(val);
 		slider.setDisable(val);

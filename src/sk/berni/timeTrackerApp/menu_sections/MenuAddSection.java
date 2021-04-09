@@ -67,7 +67,7 @@ public class MenuAddSection {
 				acceptSaveTimeAddPaneLabel.setText(time);
 
 				btnSaveAddData.setOnAction(e -> {
-					Activity activity = new Activity(nameInput, time);
+					Activity activity = new Activity(nameInput.trim(), time);
 					MenuStatisticsTableSection.activities.add(activity);
 					db.addNewActivity(activity);
 					saveSuccessAddLabel.setVisible(true);

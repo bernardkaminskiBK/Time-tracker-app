@@ -96,7 +96,7 @@ public class MenuTimerSection {
 	}
 
 	private void textInput(String inputText, String time) {
-		Activity activity = new Activity(inputText, time);
+		Activity activity = new Activity(inputText.trim(), time);
 		MenuStatisticsTableSection.activities.add(activity);
 		db.addNewActivity(activity);
 		nameOfActivity.clear();
